@@ -9,15 +9,8 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     
-    // 1. Передать сюда массив с ответами
-    // 2. Определить наиболее часто встречающийся тип животного
-    // 3. Отобразить результат в соответсвии с этим животным
-    // 4. Избавиться от кнопки возврата назад на экране результатов
-    
-    
     @IBOutlet weak var showResultLabel: UILabel!
     @IBOutlet weak var descritionLabel: UILabel!
-    
     
     var answersChoosen: [Answer]!
 
@@ -28,7 +21,6 @@ class ResultsViewController: UIViewController {
     }
     
     private func defineUserType() {
-        
         var answersSum = [AnimalType: Int]()
         
         for answer in answersChoosen {
