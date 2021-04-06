@@ -20,33 +20,27 @@ class ResultsViewController: UIViewController {
     
     
     var answersChoosen: [Answer]!
-    private var userResult: AnimalType!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         defineUserType()
-        showResult(type: userResult)
     }
     
     private func defineUserType() {
-
-        var answerDictionary = [AnimalType: Int]()
+        
+        var answersSum = [AnimalType: Int]()
         
         for answer in answersChoosen {
-            answerDictionary[answer.type, default: 0] += 1
+            answersSum[answer.type, default: 0] += 1
         }
-        let result = answerDictionary.first { $0.value == answerDictionary.values.max() }
-        if let x = result?.key {userResult = x}
-        
-    
+        let userResult = answersSum.first { $0.value == answersSum.values.max() }
+        if let type = userResult?.key { showResult(type: type)}
     }
-    
-    
     
     private func showResult(type: AnimalType) {
         showResultLabel.text = "Вы - \(type.rawValue)"
         descritionLabel.text = type.definition
     }
-
+    
 }
